@@ -1,0 +1,1 @@
+@py.exe C:\myPythonScripts\weather.py %*
