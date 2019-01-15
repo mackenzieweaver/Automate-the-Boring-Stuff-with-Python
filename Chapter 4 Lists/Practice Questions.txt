@@ -1,0 +1,94 @@
+1. What is []?
+A list begins with an opening square bracket and ends with a closing square bracket. The values inside the list are called items. The items are seperated with commas.
+
+
+2. How would you assign the value 'hello' as the third value in a list stored
+in a variable named spam? (Assume spam contains [2, 4, 6, 8, 10].)
+spam[2] = 'hello'
+
+
+
+For the following three questions, let’s say spam contains the list 
+['a','b', 'c', 'd'].
+
+3. What does spam[int(int('3' * 2) / 11)] evaluate to?
+spam[3] = 'd'
+
+
+4. What does spam[-1] evaluate to?
+spam[2] = 'd'
+
+
+5. What does spam[:2] evaluate to?
+'a', 'b'
+
+
+For the following three questions, let’s say bacon contains the list
+[3.14, 'cat', 11, 'cat', True].
+
+
+6. What does bacon.index('cat') evaluate to?
+1
+
+
+7. What does bacon.append(99) make the list value in bacon look like?
+[3.14, 'cat', 11, 'cat', True, 99]
+
+
+8. What does bacon.remove('cat') make the list value in bacon look like?
+[3.14, 11, 'cat', True, 99]
+It removes the first 'cat'
+
+
+9. What are the operators for list concatenation and list replication?
++ and * 
+
+
+
+10. What is the difference between the append() and insert() list methods?
+The .append() method adds to the list at the end, but the .insert() method adds into a place where you specify like spam.insert(1, 'chicken') that would add chicken in spam[1].
+
+
+11. What are two ways to remove values from a list?
+You could use the remove() method or del using an index of a list. For example: 
+eggs = [1, 2, 3]
+del eggs[2]
+
+12. Name a few ways that list values are similar to string values.
+You could consider a string to be a “list” of single text characters. Many of the things you can do with lists can also be done with strings: indexing; slicing; and using them with for loops, with len(), and with the in and not in operators.
+
+
+
+13. What is the difference between lists and tuples?
+Tuples are typed with parentheses, and Tuples cannot have their values modified (they are immutable.
+
+
+14. How do you type the tuple value that has just the integer value 42 in it?
+Type a comma at the end of the parentheses like this
+tuple = (42,)
+
+
+15. How can you get the tuple form of a list value? 
+How can you get the list
+form of a tuple value?
+Use the keyword 'tuple' or 'list' then parentheses around the value to convert to tuple, and brackets around the value to convert to list. 
+
+For example:
+tuple(['cat', 'dog', 5])
+or to go the other way, from tuple to list
+Example:
+list(('cat', 'dog', 5))
+
+
+16. Variables that “contain” list values don’t actually contain lists directly.
+What do they contain instead?
+References
+
+
+17. What is the difference between copy.copy() and copy.deepcopy()?
+
+copy.copy(), can be used to make a duplicate copy of a mutable value like a list or dictionary, not just a copy of a reference.
+
+If the list you need to copy contains lists, then use the copy.deepcopy()
+function instead of copy.copy(). The deepcopy() function will copy these
+inner lists as well.
