@@ -1,0 +1,117 @@
+Python 3.7.1 (v3.7.1:260ec2c36a, Oct 20 2018, 14:57:15) [MSC v.1915 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> import zipfile, os
+>>> os.chdir('C:\Users\Mack W\Documents\7 Python\pyFiles\Automate the Boring Stuff with Python\Chapter 9 Organizing Files)
+	     
+SyntaxError: EOL while scanning string literal
+>>> os.chdir('C:\\Users\\Mack W\\Documents\\7 Python\\pyFiles\\Automate the Boring Stuff with Python\Chapter 9 Organizing Files)
+	     
+SyntaxError: EOL while scanning string literal
+>>> os.chdir('C:\\Users\\Mack W\\Documents\\7 Python\\pyFiles\\Automate the Boring Stuff with Python\\Chapter 9 Organizing Files)
+	     
+SyntaxError: EOL while scanning string literal
+>>> os.chdir('C:\\Users\\Mack W\\Documents\\7 Python\\pyFiles\\Automate the Boring Stuff with Python\\Chapter 9 Organizing Files')
+	     
+>>> os.listdir()
+	     
+['directoryWalk.py', 'example', 'example.zip']
+>>> exampleZip = zipfile.ZipFile('example.zip')
+	     
+>>> exampleZip.namelist()
+	     
+['example/', 'example/cats/', 'example/cats/catnames.txt', 'example/cats/zophie.jpg', 'example/spam.txt']
+>>> import pprint
+	     
+>>> pprint.pprint(exampleZip.namelist())
+	     
+['example/',
+ 'example/cats/',
+ 'example/cats/catnames.txt',
+ 'example/cats/zophie.jpg',
+ 'example/spam.txt']
+>>> spamInfo = exampleZip.getinfo('spam.txt')
+	     
+Traceback (most recent call last):
+  File "<pyshell#10>", line 1, in <module>
+    spamInfo = exampleZip.getinfo('spam.txt')
+  File "C:\Users\Mack W\AppData\Local\Programs\Python\Python37\lib\zipfile.py", line 1395, in getinfo
+    'There is no item named %r in the archive' % name)
+KeyError: "There is no item named 'spam.txt' in the archive"
+>>> exampleZip.close()
+	     
+>>> exampleZip = zipfile.ZipFile('example.zip')
+	     
+>>> exampleZip.namelist()
+	     
+['cats/', 'cats/catnames.txt', 'cats/zophie.jpg', 'spam.txt']
+>>> pprint.pprint(exampleZip.namelist())
+	     
+['cats/', 'cats/catnames.txt', 'cats/zophie.jpg', 'spam.txt']
+>>> spamInfo = exampleZip.getinfo('spam.txt')
+	     
+>>> spamInfo.file_size
+	     
+0
+>>> spamInfo.compress_size
+	     
+0
+>>> exampleZip.close()
+	     
+>>> exampleZip = zipfile.ZipFile('example.zip')
+	     
+Traceback (most recent call last):
+  File "<pyshell#19>", line 1, in <module>
+    exampleZip = zipfile.ZipFile('example.zip')
+  File "C:\Users\Mack W\AppData\Local\Programs\Python\Python37\lib\zipfile.py", line 1204, in __init__
+    self.fp = io.open(file, filemode)
+FileNotFoundError: [Errno 2] No such file or directory: 'example.zip'
+>>> exampleZip = zipfile.ZipFile('example.zip')
+	     
+>>> spamInfo = exampleZip.getinfo('spam.txt')
+	     
+>>> spamInfo.file_size
+	     
+2218
+>>> spamInfo.compress_size
+	     
+682
+>>> exampleZip.close()
+	     
+>>> exampleZip = zipfile.ZipFile('example.zip')
+	     
+>>> exampleZip.extractall()
+	     
+>>> exampleZip.extractall()
+	     
+>>> exampleZip.close()
+	     
+>>> exampleZip = zipfile.ZipFile('example.zip')
+	     
+>>> exampleZip.extractall('delicious')
+	     
+>>> 
+=============================== RESTART: Shell ===============================
+>>> import zipfile
+	     
+>>> newZip = zipfile.ZipFile('new.zip', 'w')
+	     
+>>> import os
+	     
+>>> os.chdir('C:\\Users\\Mack W\\Documents\\7 Python\pyFiles\\Automate the Boring Stuff with Python\\Chapter 9 Organizing Files')
+	     
+>>> os.listdir()
+	     
+['directoryWalk.py', 'example.zip']
+>>> newZip = zipfile.ZipFile('new.zip', 'w')
+	     
+>>> newZip.write('spam.txt', compress_type=zipfile.ZIP_DEFLATED)
+	     
+Traceback (most recent call last):
+  File "<pyshell#37>", line 1, in <module>
+    newZip.write('spam.txt', compress_type=zipfile.ZIP_DEFLATED)
+  File "C:\Users\Mack W\AppData\Local\Programs\Python\Python37\lib\zipfile.py", line 1710, in write
+    zinfo = ZipInfo.from_file(filename, arcname)
+  File "C:\Users\Mack W\AppData\Local\Programs\Python\Python37\lib\zipfile.py", line 506, in from_file
+    st = os.stat(filename)
+FileNotFoundError: [WinError 2] The system cannot find the file specified: 'spam.txt'
+>>> 
